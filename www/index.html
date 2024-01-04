@@ -13,6 +13,7 @@
     <title>Historial medico</title>
 </head>
 <body>
+    
     <div class="app">
         <form action="#">
             <div class="title">
@@ -21,100 +22,176 @@
             </div>
             
             <div class="input">
-
-                <h2>Informacion personal</h2>
-
-                <div class="grid-three">
+                
+                <h2>INFORMACION PERSONAL</h2>
+                
+                <div class="grid-three">  
                     <input type="text" name="name" id="name" placeholder="Nombre" required>
-                    <input type="text" name="APaterno" id="APaterno" placeholder="Apellido paterno" required>
-                    <input type="text" name="AMaterno" id="AMaterno" placeholder="Apellido materno" required>
-                </div>
-
-                <div class="grid-two">
+                    <input type="text" name="aPaterno" id="aPaterno" placeholder="Apellido paterno" required>
+                    <input type="text" name="aMaterno" id="aMaterno" placeholder="Apellido materno" required>
                     <span>
-                        <label for="FechaNacimiento">Fecha de nacimiento:</label>
-                        <input type="date" name="FechaNacimiento" id="FechaNacimiento" required>
+                        <label for="fechaNacimiento">FECHA DE NACIMIENTO:</label>
+                        <input type="date" name="fechaNacimiento" id="fechaNacimiento" required>
                     </span>
                     <input type="text" name="edad" id="edad" placeholder="Edad" required>
                     <input type="number" name="telefono" id="telefono" placeholder="Telefono" required>
-                    <input type="email" name="email" id="email" placeholder="Correo electronico" required>
+                    <input type="email" name="email" id="email" placeholder="Correo electronico" required>    
                 </div>
-
+                
             </div>
             
             <div class="input">
-
-                <h2>Residencia</h2>
+                
+                <h2>RESIDENCIA</h2>
+                
                 <div class="grid-three">
-                    <input type="text" name="name" id="name" placeholder="Direccion" required>
-                    <input type="text" name="APaterno" id="APaterno" placeholder="Numero" required>
-                    <input type="text" name="AMaterno" id="AMaterno" placeholder="Colonia" required>
-                    <input type="text" name="name" id="name" placeholder="Municipio/localidad" required>
-                    <input type="text" name="APaterno" id="APaterno" placeholder="Estado" required>
+                    <input type="text" name="direccion" id="direccion" placeholder="Direccion" required>
+                    <input type="number" name="numero" id="numero" placeholder="Numero" required>
+                    <input type="text" name="colonia" id="colonia" placeholder="Colonia" required>
+                    <input type="text" name="municipio" id="municipio" placeholder="Municipio/localidad" required>
+                    <input type="text" name="estado" id="estado" placeholder="Estado" required>
                 </div>
-
+                
             </div>
             
             <div class="input">
-
-                <h2>Historial medico</h2>
-
-                <div class="grid-one">
-                    <label for="antecedentes">ANTECENTES DE ENFEMEDADES (DM, HTA, TIROIDES):</label>
-                    <textarea name="" id="" cols="30" rows="3" required></textarea>
-                    <label for="antecedentes">ANTEDECENTES HEREDITARIOS (ENFEMEDAD QUE PADECEN FAMILIARES DIRECTOS):</label>
-                    <textarea name="" id="" cols="30" rows="3" required></textarea>
-                    <label for="antecedentes">ANTECENTES DE ENFEMEDADES (DM, HTA, TIROIDES):</label>
-                    <textarea name="" id="" cols="30" rows="3" required></textarea>
+                
+                <h2>HISTORIAL MEDICO</h2>
+                
+                <div class="grid-one">        
+                    <label for="aEnfermedades">ANTECENTES DE ENFEMEDADES (DM, HTA, TIROIDES).</label>
+                    <textarea name="aEnfermedades" id="aEnfermedades" cols="30" rows="3" required></textarea>
+                    <label for="aHereditarios">ANTEDECENTES HEREDITARIOS (ENFEMEDAD QUE PADECEN FAMILIARES DIRECTOS).</label>
+                    <textarea name="aHereditarios" id="aHereditarios" cols="30" rows="3" required></textarea>
                 </div>
-
+                
                 <div class="grid-radios">
-
+                    
                     <span>
-                        <label>CONSUMO DE ALCOHOL (FRECUENCIA):</label>
+                        <label>CONSUMO DE ALCOHOL (FRECUENCIA).</label>
                     </span>
-                    <div class="radio-group">                        
-                        <input type="radio" name="Alcohol" value="nunca"> Nunca
-                        <input type="radio" name="Alcohol" value="ocasional"> Ocasional
-                        <input type="radio" name="Alcohol" value="frecuente"> Frecuente
+                    
+                    <div class="radio-group">     
+                        <input class="radio-group-input" type="radio" name="Alcohol" value="nunca"> Nunca
+                        <input class="radio-group-input" type="radio" name="Alcohol" value="ocasional"> Ocasional
+                        <input class="radio-group-input"type="radio" name="Alcohol" value="frecuente"> Frecuente        
                     </div>
-
+                    
                     <span>
-                        <label>CONSUMO DE TABACO (FRECUENCIA):</label>
+                        <label>CONSUMO DE TABACO (FRECUENCIA).</label>
                     </span>
-                    <div class="radio-group">                            
-                        <input type="radio" name="Tabaco" value="nunca"> Nunca
-                        <input type="radio" name="Tabaco" value="ocasional"> Ocasional
-                        <input type="radio" name="Tabaco" value="frecuente"> Frecuente
+                    <div class="radio-group">     
+                        <input class="radio-group-input" type="radio" name="Tabaco" value="nunca"> Nunca
+                        <input class="radio-group-input" type="radio" name="Tabaco" value="ocasional"> Ocasional
+                        <input class="radio-group-input" type="radio" name="Tabaco" value="frecuente"> Frecuente   
                     </div>
-
+                    
                 </div> 
-
+                
                 <div class="grid-one">
-                    <p>hola</p>
-                    <label for="antecedentes">ALERGIA A MEDICAMENTOS O ALIMENTOS:</label>
-                    <textarea name="" id="" cols="30" rows="3"></textarea>
+                    
+                    <label for="alergias">ALERGIA A MEDICAMENTOS O ALIMENTOS:</label>
+                    <textarea name="alergias" id="alergias" cols="30" rows="3" required></textarea>
+                    
                 </div>
-
+                
             </div>
-
+            
             <div class="input">
-
-                <h2>Historial ginecologo</h2>
-
+                
+                <h2>HISTORIAL GINECOLOGO</h2>
+                
                 <div class="grid-one">
-                    <label for="antecedentes">ANTECENTES DE ENFEMEDADES (DM, HTA, TIROIDES):</label>
-                    <textarea name="" id="" cols="30" rows="3" required></textarea>
-                    <label for="antecedentes">ANTEDECENTES HEREDITARIOS (ENFEMEDAD QUE PADECEN FAMILIARES DIRECTOS):</label>
-                    <textarea name="" id="" cols="30" rows="3" required></textarea>
-                    <label for="antecedentes">ANTECENTES DE ENFEMEDADES (DM, HTA, TIROIDES):</label>
-                    <textarea name="" id="" cols="30" rows="3" required></textarea>
+                    
+                    <label for="historialMenstrual">HISTORIAL MENSTRUAL (DURACIÓN Y REGULARIDAD DEL CICLO).</label>
+                    <textarea name="historialMenstrual" id="historialMenstrual" cols="30" rows="3"></textarea>
+                    
+                    <div class="grid-three">
+                        
+                        <span>
+                            <label for="">MENARCA</label>
+                            <input type="number" name="menarca" id="menarca" placeholder="EDAD">
+                        </span>
+                        <span>
+                            <label for="">IVSA</label>
+                            <input type="number" name="ivsa" id="ivsa" placeholder="EDAD">
+                        </span>  
+                        
+                        <input type="text" name="anticopceptivo" id="anticopceptivo" placeholder="ANTICOPCEPTIVO ACTUAL">
+                        
+                    </div>
+                    
+                    <label for="examenes">EXÁMENES GINECOLÓGICOS PREVIOS (PAPANICOLAOU, USG, MASTOGRAFIA).</label>
+                    <textarea name="examenes" id="examenes" cols="30" rows="3"></textarea>
+                    
                 </div>
-
+                
             </div>
+            
+            <div class="input">
+                
+                <h2>HISTORIAL OBSTÉTRICO</h2>
+                
+                <div class="grid-one">
+                    
+                    <div class="grid-three">
+                        <input type="text" name="fur" id="fur" placeholder="FUR">
+                        <input type="number" name="nEmbarazos" id="nEmbarazos" placeholder="Numero de embarazos">
+                        <input type="number" name="nPartos" id="nPartos" placeholder="Numero de partos">
+                        <input type="number" name="nCesareas" id="nCesareas" placeholder="Numero de cesareas">
+                        <input type="number" name="nLegrado" id="nLegrado" placeholder="Numero de legrado">
+                    </div>
+                    
+                    <label for="complicacionesParto">COMPLICACIONES DURANTE EL PARTO O CESÁREAS ANTERIORES:</label>
+                    <textarea name="complicacionesParto" id="complicacionesParto" cols="30" rows="3"></textarea>
+                    
+                    <label for="complicacionesEmbarazo">COMPLICACIONES EN EMBARAZOS ANTERIORES:</label>
+                    <textarea name="complicacionesEmbarazo" id="complicacionesEmbarazo" cols="30" rows="3"></textarea>
+                    
+                    <div class="grid-radios">
+                        
+                        <span>
+                            <label>DIABETES GESTACIONAL:</label>
+                        </span>
+                        <div class="radio-group-two">                        
+                            <input class="radio-group-input-two" type="radio" name="Diabetes" id="DiabetesSI" value="nunca"> SI
+                            <input class="radio-group-input-two" type="radio" name="Diabetes" id="DiabetesNO" value="ocasional"> NO
+                        </div>
+                        
+                    </div>
+                    
+                    <span>
+                        <label for="pesobebe">PESO DE SU BEBÉ ANTERIOR</label>
+                        <input type="number" name="pesobebe" id="pesobebe">
+                        <label for="">GRS</label>
+                    </span>
+                    
+                    <label for="antecedentesFamEmbarazo">ANTECEDENTES FAMILIARES DE COMPLICACIONES DURANTE EL EMBARAZO:</label>
+                    <textarea name="antecedentesFamEmbarazo" id="antecedentesFamEmbarazo" cols="30" rows="3"></textarea>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="input">
+                
+                <h2>SOMATOMETRÍA</h2>
+                
+                <div class="grid-three">
+                    <input type="text" name="peso" id="peso" placeholder="PESO" required>
+                    <input type="text" name="talla" id="talla" placeholder="TALLA" required>
+                    <input type="text" name="ta" id="ta" placeholder="TA" required>
+                    <input type="text" name="spo2" id="spo2" placeholder="SPO2" required>
+                    <input type="text" name="temperatura" id="temperatura" placeholder="Tº" required> 
+                </div>
+                
+            </div>
+            
+            <button class="btn" id="btnsend" type="button">Enviar información</button>
 
         </form>
     </div>
+    
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
 </body>
