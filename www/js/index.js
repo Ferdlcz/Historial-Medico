@@ -21,6 +21,16 @@ function onDeviceReady() {
     loginButton.addEventListener('click', loginUser);
   })
 
+  $.getScript("/www/js/login.js", function(){
+    const reqResetButton = document.getElementById('reset-pass-button');
+    reqResetButton.addEventListener('click', reqResetPassowrd);
+  })
+
+  $.getScript("/www/js/login.js", function(){
+    const resetpassButton = document.getElementById('reset-pass');
+    resetpassButton.addEventListener('click', resetPassword);
+  })
+
   const btnAccount = document.getElementById("newAccount");
   btnAccount.addEventListener("click", function () {
     window.location.href = "../registrarse.html";
