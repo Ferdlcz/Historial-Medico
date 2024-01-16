@@ -63,13 +63,16 @@ function loginUser() {
       }
       return response.json();
     }).then(data => {
-        localStorage.setItem('Token', data.token);
-        localStorage.setItem('ID', data.Usuario.id);
-        localStorage.setItem('Nombre', data.Usuario.nombre);
-        localStorage.setItem('Apellido', data.Usuario.apellido);
+      sessionStorage.setItem('Token', data.token);
+      sessionStorage.setItem('ID', data.Usuario.id);
+      sessionStorage.setItem('Nombre', data.Usuario.nombre);
+      sessionStorage.setItem('Apellido', data.Usuario.apellido);
+      sessionStorage.setItem('Rol', data.Usuario.rol);
 
-        const nombre = localStorage.getItem('Nombre');
-        const apellido = localStorage.getItem('Apellido');
+        redirectBasedOnUserRole(data.Usuario.rol);
+
+        const nombre = sessionStorage.getItem('Nombre');
+        const apellido = sessionStorage.getItem('Apellido');
       console.log(data);
       alert(`Inicio de sesión exitoso, Bienvenido ${nombre} ${apellido}`);
     }).catch(error => {
@@ -77,6 +80,31 @@ function loginUser() {
       alert(error.message || 'Error en la respuesta del servidor');
     });
   }
+  function redirectBasedOnUserRole(userRole) {
+    const routes = {
+        'Paciente': '../app/index.html',
+        'Administrador': '../app/paneladmin.html',
+    };
+
+    const redirectPath = routes[userRole];
+
+    if (redirectPath) {
+        if (userRole === 'Administrador' && isTryingToAccessPatientRoute()) {
+            console.error('Acceso no permitido a rutas de Paciente para Administradores');
+            window.location.href = '../index.html'; // Redirigir a la página principal para los administradores
+        } else {
+            window.location.href = `../app/${redirectPath}`;
+        }
+    } else {
+        console.error(`Rol desconocido: ${userRole}`);
+    }
+}
+
+function isTryingToAccessPatientRoute() {
+  const patientPages = ['../app/index.html', '../app/crearhistorial.html'];
+  const currentPage = window.location.pathname.split('/').pop();
+  return patientPages.includes(currentPage);
+}
 
 function reqResetPassowrd(){
     const email = document.getElementById('email').value;
@@ -121,9 +149,8 @@ function resetPassword() {
     const newPassword = document.getElementById('password').value;
     const token = localStorage.getItem('resetToken');
 
-    // Verificar si el token está presente
     if (!token) {
-        alert('No se encontró un token de restablecimiento. Por favor, solicita un restablecimiento de contraseña primero.');
+        alert('No se encontró una solicitud de restablecimiento. Por favor, solicita un restablecimiento de contraseña primero.');
         return;
     }
 
