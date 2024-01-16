@@ -1,7 +1,3 @@
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onDeviceReady() {
-  console.log("Device Ready");
 
   $.getScript("/www/js/sendInfo.js", function () {
     const btnSend = document.getElementById("btnsend");
@@ -35,4 +31,3 @@ function onDeviceReady() {
   btnAccount.addEventListener("click", function () {
     window.location.href = "../registrarse.html";
   });
-}

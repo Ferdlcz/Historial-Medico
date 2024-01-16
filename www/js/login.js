@@ -49,7 +49,7 @@ function loginUser() {
       Contraseña: password
     };
   
-    fetch('http://localhost:3500/api/login', {
+    fetch('https://historial-medicoapi-production.up.railway.app/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
