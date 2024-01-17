@@ -1,1 +1,1 @@
-{"plugins":["cordova-plugin-advanced-http","cordova-plugin-file"]}
+{"plugins":["cordova-plugin-file","cordova-plugin-device","cordova-plugin-advanced-http"]}

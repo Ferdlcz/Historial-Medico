@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital@1&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/patient.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <title>Historial medico</title>
@@ -15,6 +16,86 @@
 <body>
     
     <div class="app">
+
+        
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    Consultorio especialista en Ginecologia y Obstetricia
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="./index.html" class="nav__link">
+                                <box-icon class="nav__icon" name='home'></box-icon>
+                                <span class="nav__name">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../app/crearhistorial.html" class="nav__link">
+                                <box-icon class="nav__icon" name='folder-plus'></box-icon>
+                                <span class="nav__name">Crear historial</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="" class="nav__link">
+                                <box-icon class="nav__icon" name='cloud-upload'></box-icon>
+                                <span class="nav__name">Actualizar historial</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="" class="nav__link">
+                                <box-icon class="nav__icon" name='log-out'></box-icon>
+                                <span class="nav__name">Cerrar sesion</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="nav__img" id="user">Usuario</p>
+            </nav>
+        </header>
+        
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    Consultorio especialista en Ginecologia y Obstetricia
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="./index.html" class="nav__link">
+                                <box-icon class="nav__icon" name='home'></box-icon>
+                                <span class="nav__name">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../app/crearhistorial.html" class="nav__link">
+                                <box-icon class="nav__icon" name='folder-plus'></box-icon>
+                                <span class="nav__name">Crear historial</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="" class="nav__link">
+                                <box-icon class="nav__icon" name='cloud-upload'></box-icon>
+                                <span class="nav__name">Actualizar historial</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="" class="nav__link">
+                                <box-icon class="nav__icon" name='log-out'></box-icon>
+                                <span class="nav__name">Cerrar sesion</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="nav__img" id="user">Usuario</p>
+            </nav>
+        </header>
+
         <form action="#" id="btnsend">
             <div class="title">
                 <h1>Historial médico</h1>
@@ -196,6 +277,7 @@
     </div>
     
     <script src="../cordova.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="../js/routes.js"></script>
 </body>
 </html>
