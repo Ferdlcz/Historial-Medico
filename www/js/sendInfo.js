@@ -47,7 +47,8 @@ function onDeviceReady() {
         const ta = document.getElementById("ta").value;
         const spo2 = document.getElementById("spo2").value;
         const temperatura = document.getElementById("temperatura").value;
-        
+        const IDUsuario = sessionStorage.getItem("ID");
+
         //*** RADIOBUTTON ALCOHOl ***//
         let consumoAlcohol;
         for (const radioButton of alcoholOptions) {
@@ -75,6 +76,7 @@ function onDeviceReady() {
         }
         
         const data ={
+            IDUsuario,
             nombre,
             apellidoPaterno,
             apellidoMaterno,
@@ -113,18 +115,23 @@ function onDeviceReady() {
             spo2,
             temperatura,
         }
+
+        const token = sessionStorage.getItem('Token');        
         
-        fetch('https://historial-medicoapi-production.up.railway.app/api/registrar', {
+        fetch('http://localhost:3500/api/registrar', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json', 
+            'Content-Type': 'application/json',
+            'Authorization': token, 
         },
         body: JSON.stringify(data),
     })
     
     .then(response =>{
         if(!response.ok){
-            throw new Error('Error en la respuesta del servidor')
+            return response.json().then(errorData =>{
+                throw new Error(`Error en la respuesta del servidor: ${errorData.message}`);
+            })
         }
         return response.json();
     }).then(data =>{
@@ -132,8 +139,8 @@ function onDeviceReady() {
         alert("Datos enviados correctamente!!")
         console.log(data)
     }).catch(error =>{
-        console.log("Error al enviar los datos:", error);
-        alert('Error al enviar los datos.')
+        console.log("Error al enviar los datos:", error.message);
+        alert(`Error al enviar los datos: ${error.message}`);
     })
 }
 

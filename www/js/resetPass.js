@@ -14,7 +14,7 @@ function resetPassword() {
         nuevaContraseña: newPassword,
     }
 
-    fetch(`https://historial-medicoapi-production.up.railway.app/api/reset-password/${token}`, {
+    fetch(`http://localhost:3500/api/reset-password/${token}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

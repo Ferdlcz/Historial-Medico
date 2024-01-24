@@ -8,7 +8,7 @@ const reqResetButton = document.getElementById('reset-pass-button');
           Email: email,
       }
   
-      fetch('https://historial-medicoapi-production.up.railway.app/api/reset-password',{
+      fetch('http://localhost:3500/api/reset-password',{
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -1,20 +1,20 @@
 :root{
     --header-height: 3rem;
-
+    
     --hue: 174;
     --sat: 63%;
-
+    
     --first-color: hsl(var(--hue), var(--sat), 40%);
     --first-color-alt: hsl(var(--hue), var(--sat), 36%);
     --title-color: hsl(var(--hue), 12%, 15%);
     --text-color: hsl(var(--hue), 8%, 35%);
     --body-color: hsl(var(--hue), 100%, 99%);
     --container-color: #fff;
-
+    
     --body-font: 'Nunito', sans-serif;
     --h1-font-size: .938rem;
     --tiny-font-size: .625rem;
-
+    
     --z-tooltip: 10;
     --z-fixed: 100;
 }
@@ -30,8 +30,8 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-  }
-  
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -58,6 +58,10 @@ img{
 }
 
 .section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 4.5rem 0 2rem
 }
 
@@ -104,7 +108,30 @@ img{
     font-weight: 600;
 }
 
+.button{
+    border: solid 2px #381e7b;
+    color: #000000;
+    padding: 10px;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: #381e7b;
+    color: #fff;
+}
+
 @media screen and (max-width: 767px) {
+    
+    .section{
+        padding: 1.5rem 0 1rem;
+        
+    }
+    .section__height{
+        height: 94vh;
+    }
+    
     .nav__menu{
         position: fixed;
         bottom: 0;
@@ -132,6 +159,15 @@ img{
     row-gap: .25rem;
     color: var(--title-color);
     font-weight: 600;
+    transition: .2s;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    
+}
+
+.nav__link:hover{
+    border-bottom: solid 3px #381e7b;
+    border-top: solid 3px #381e7b;
 }
 
 .nav__list{
@@ -145,6 +181,16 @@ img{
 .nav__icon{
     font-size: 1.5rem;
 }
+
+form {
+padding-top: 4rem;
+padding-bottom: 4rem;
+}
+
+.input {
+    width: 100%;
+}
+
 
 @media screen and (max-width: 320px) {
     .nav__name{
@@ -163,15 +209,15 @@ img{
     body{
         margin: 0;
     }
-
+    
     .nav{
         height: calc(var(--header-height) + 1.5rem);
     }
-
+    
     .nav__img{
         display: none;
     }
-
+    
     .nav__list{
         justify-content: center;
         column-gap: 3rem;
@@ -180,13 +226,13 @@ img{
     .nav__icon{
         display: none;
     }
-
+    
     .nav__name{
         font-size: var(--normal-font-size);
     }
-
+    
     .nav__link:hover{
         color: var(--first-color);
     }
-
+    
 }

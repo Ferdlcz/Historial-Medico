@@ -15,7 +15,7 @@ function onDeviceReady() {
         Contraseña: password
       };
     
-      fetch('https://historial-medicoapi-production.up.railway.app/api/login', {
+      fetch('http://localhost:3500/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -73,6 +73,3 @@ function onDeviceReady() {
   }
 
 }
-  
-  
- 

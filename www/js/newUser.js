@@ -14,7 +14,7 @@ function registerUser() {
         Nombre
     };
 
-    fetch('https://historial-medicoapi-production.up.railway.app/api/userregister', {
+    fetch('http://localhost:3500/api/userregister', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
