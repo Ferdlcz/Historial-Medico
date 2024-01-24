@@ -105,6 +105,8 @@ function showInfo() {
     if(infoUsuarios){
         const user = infoUsuarios[0];
         const FechaNac = new Date(user.FechaNacimiento).toLocaleDateString();
+        const FurDate = new Date(user.FUR).toLocaleDateString();
+        const pesoBebe = user.PesoBebeAnterior;
 
         nombre.textContent = user.Nombre;
         apellidoPaterno.textContent = user.ApellidoPaterno;
@@ -128,7 +130,7 @@ function showInfo() {
         ivsa.textContent = user.IVSAEdad;
         anticopceptivo.textContent = user.AnticonceptivoActual;
         examenes.textContent = user.ExamenesGinecologicosPrevios;
-        fur.textContent = user.FUR;
+        fur.textContent = FurDate;
         numeroEmbarazos.textContent = user.NumeroEmbarazos;
         numeroPartos.textContent = user.NumeroPartos;
         numeroCesareas.textContent = user.NumeroCesareas;        
@@ -136,7 +138,7 @@ function showInfo() {
         complicacionesParto.textContent = user.ComplicacionesPartoCesarea;
         complicacionesEmbarazo.textContent = user.ComplicacionesEmbarazosAnteriores;
         diabetes.textContent = user.DiabetesGestacional;
-        pesobebe.textContent = user.PesoBebeAnterior;
+        pesobebe.textContent = `${pesoBebe} GRS`;
         antecedentesFamEmbarazo.textContent = user.AntecedentesFamiliaresComplicacionesEmbarazo;
         peso.textContent = user.Peso;
         talla.textContent = user.Talla;
