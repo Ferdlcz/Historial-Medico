@@ -140,7 +140,7 @@ function onDeviceReady() {
         console.log(data)
     }).catch(error =>{
         console.log("Error al enviar los datos:", error.message);
-        alert(`Error al enviar los datos: ${error.message}`);
+        alert(`${error.message}`);
     })
 }
 

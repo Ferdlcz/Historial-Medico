@@ -33,13 +33,13 @@
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#" class="nav__link">
+                            <a href="../app/crearhistorial.html" id="verificarHistorial" class="nav__link">
                                 <box-icon class="nav__icon" name='folder-plus'></box-icon>
                                 <span class="nav__name">Crear historial</span>
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="../app/actualizarhistorial.html" class="nav__link">
+                            <a href="#" class="nav__link">
                                 <box-icon class="nav__icon" name='cloud-upload'></box-icon>
                                 <span class="nav__name">Actualizar historial</span>
                             </a>
@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="../app/actualizarhistorial.html" class="nav__link">
+                            <a href="" class="nav__link">
                                 <box-icon class="nav__icon" name='cloud-upload'></box-icon>
                                 <span class="nav__name">Actualizar historial</span>
                             </a>
@@ -96,7 +96,7 @@
             </nav>
         </header>
 
-        <form action="#" id="btnsend">
+        <form action="#" id="updateInfo">
             <div class="title">
                 <h1>Historial médico</h1>
                 <hr>
@@ -112,7 +112,7 @@
                     <input type="text" name="aMaterno" id="aMaterno" placeholder="Apellido materno" required>
                     <span>
                         <label for="fechaNacimiento">FECHA DE NACIMIENTO:</label>
-                        <input type="date" name="fechaNacimiento" id="fechaNacimiento" required>
+                        <input type="text" name="fechaNacimiento" id="fechaNacimiento" required>
                     </span>
                     <input type="text" name="edad" id="edad" placeholder="Edad" required>
                     <input type="text" name="telefono" id="telefono" placeholder="Telefono" required>
@@ -220,7 +220,7 @@
                     <div class="grid-three">
                         <span>
                             <label for="fur">FUR:</label>
-                            <input type="date" name="fur" id="fur" placeholder="FUR">
+                            <input type="text" name="fur" id="fur" placeholder="FUR">
                         </span>
                         <input type="number" name="nEmbarazos" id="nEmbarazos" placeholder="Numero de embarazos" required>
                         <input type="number" name="nPartos" id="nPartos" placeholder="Numero de partos" required>
@@ -280,7 +280,7 @@
     
     <script src="../cordova.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="../js/sendInfo.js"></script>
     <script src="../js/routes.js"></script>
+    <script src="../js/updateHistory.js"></script>
 </body>
 </html>

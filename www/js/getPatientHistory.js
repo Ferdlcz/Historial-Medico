@@ -146,4 +146,5 @@ function showInfo() {
         spo2.textContent = user.SPO2;
         temperatura.textContent = user.Temperatura;     
     }
+
 }

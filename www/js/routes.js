@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function checkAccessForRole(role) {
     const allowedPages = {
-        'Paciente': ['/app/index.html', '/app/crearhistorial.html'],
+        'Paciente': ['/app/index.html', '/app/crearhistorial.html', '/app/actualizarhistorial.html'],
         'Administrador': ['/app/paneladmin.html']
     };
 
