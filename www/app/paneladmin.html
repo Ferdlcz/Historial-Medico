@@ -8,19 +8,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital@1&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/patient.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    <title>Panel Administrativo</title>
+    <title>Historial medico</title>
 </head>
 <body>
     
     <div class="app">
 
-        <h1>Panel administrativo</h1>
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    Consultorio especialista en Ginecologia y Obstetricia
+                </a>
 
-    </div>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="./paneladmin.html" class="nav__link">
+                                <box-icon class="nav__icon" name='home'></box-icon>
+                                <span class="nav__name">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="" class="nav__link" onclick="Logout()">
+                                <box-icon class="nav__icon" name='log-out'></box-icon>
+                                <span class="nav__name">Cerrar sesion</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </header>
+
+       <section class="container section section__height">
+
+       </section>
+
+    </div>  
 
     <script src="../cordova.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="../js/logout.js"></script>
     <script src="../js/routes.js"></script>
+    <script src="../js/getPatientHistory.js"></script>
 </body>
 </html>
