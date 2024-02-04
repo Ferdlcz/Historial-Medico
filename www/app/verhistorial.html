@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital@1&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/patient.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <title>Historial medico</title>
+</head>
+<body>
+    
+    <div class="app">
+
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="#" class="nav__logo">
+                    Consultorio especialista en Ginecologia y Obstetricia
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="./index.html" class="nav__link">
+                                <box-icon class="nav__icon" name='home'></box-icon>
+                                <span class="nav__name">Inicio</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../app/crearhistorial.html" class="nav__link">
+                                <box-icon class="nav__icon" name='folder-plus'></box-icon>
+                                <span class="nav__name">Crear historial</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="../app/actualizarhistorial.html" class="nav__link">
+                                <box-icon class="nav__icon" name='cloud-upload'></box-icon>
+                                <span class="nav__name">Actualizar historial</span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="" class="nav__link" onclick="Logout()">
+                                <box-icon class="nav__icon" name='log-out'></box-icon>
+                                <span class="nav__name">Cerrar sesion</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </header>
+
+        <form action="#" id="historial">
+            <div class="title">
+                <h1>Historial médico</h1>
+                <hr>
+            </div>
+            
+            <div class="input">
+                
+                <h2>INFORMACION PERSONAL</h2>
+                
+                <div class="grid-three">  
+                    <span>
+                        <label for="">Nombre:</label>
+                        <p id="nombre"></p>
+                    </span>
+                    <span>
+                        <label for="">Apellido paterno:</label>
+                        <p id="apellidoPaterno"></p>
+                    </span>                    
+                    <span>
+                        <label for="">Apellido materno:</label>
+                        <p id="apellidoMaterno"></p>
+                    </span>
+                    <span>
+                        <label for="fechaNacimiento">FECHA DE NACIMIENTO:</label>
+                        <p id="fechaNacimiento"></p>
+                    </span>
+                    <span>
+                        <label for="">Edad:</label>
+                        <p id="edad"></p>
+                    </span>
+                    <span>
+                        <label for="">Telefono:</label>
+                        <p id="telefono"></p>
+                    </span>
+                    <span>
+                        <label for="">Correo electronico:</label>
+                        <p id="email"></p>
+                    </span>
+
+                </div>
+                
+            </div>
+            
+            <div class="input">
+                
+                <h2>RESIDENCIA</h2>
+                
+                <div class="grid-three">
+                    <span>
+                        <label for="">Direccion:</label>
+                        <p id="direccion"></p>
+                    </span>
+                    <span>
+                        <label for="">Numero:</label>
+                        <p id="numero"></p>
+                    </span>
+                    <span>
+                        <label for="">Colonia:</label>
+                        <p id="colonia"></p>
+                    </span>
+                    <span>
+                        <label for="">Municipio:</label>
+                        <p id="municipio"></p>
+                    </span>
+                    <span>
+                        <label for="">Estado:</label>
+                        <p id="estado"></p>
+                    </span>
+                </div>
+                
+            </div>
+            
+            <div class="input">
+                
+                <h2>HISTORIAL MEDICO</h2>
+                
+                <div class="grid-one">        
+                    <label for="aEnfermedades">ANTECENTES DE ENFEMEDADES (DM, HTA, TIROIDES).</label>
+                    <p id="aEnfermedades"></p>
+                    <label for="aHereditarios">ANTEDECENTES HEREDITARIOS (ENFEMEDAD QUE PADECEN FAMILIARES DIRECTOS).</label>
+                    <p id="aHereditarios"></p>
+                </div>
+                
+                <div class="grid-radios">
+                    
+                    <span>
+                        <label for="">CONSUMO DE ALCOHOL (FRECUENCIA):</label>
+                        <p id="Alcohol"></p>
+                    </span>
+                    <span>
+                        <label for="">CONSUMO DE TABACO (FRECUENCIA):</label>
+                        <p id="Tabaco"></p>
+                    </span>
+
+                </div> 
+                
+                <div class="grid-one">
+                    
+                    <label for="alergias">ALERGIA A MEDICAMENTOS O ALIMENTOS:</label>
+                    <p id="alergias"></p>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="input">
+                
+                <h2>HISTORIAL GINECOLOGO</h2>
+                
+                <div class="grid-one">
+                    
+                    <label for="historialMenstrual">HISTORIAL MENSTRUAL (DURACIÓN Y REGULARIDAD DEL CICLO).</label>
+                    <p id="historialMenstrual"></p>
+                    
+                    <div class="grid-three">
+                        
+                        <span>
+                            <label for="">MENARCA</label>
+                            <p id="menarca"></p>
+                        </span>
+
+                        <span>
+                            <label for="">IVSA</label>
+                            <p id="ivsa"></p>
+                        </span>
+
+                        <span>
+                            <label for="">anticopceptivo</label>
+                            <p id="anticopceptivo"></p>
+                        </span>   
+                        
+                    </div>
+                    
+                    <label for="examenes">EXÁMENES GINECOLÓGICOS PREVIOS (PAPANICOLAOU, USG, MASTOGRAFIA).</label>
+                    <p id="examenes"></p>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="input">
+                
+                <h2>HISTORIAL OBSTÉTRICO</h2>
+                
+                <div class="grid-one">
+                    
+                    <div class="grid-three">
+
+                        <span>
+                            <label for="fur">FUR:</label>
+                            <p id="fur"></p>
+                        </span>
+
+                        <span>
+                            <label for="fur">Numero de embarazos:</label>
+                            <p id="nEmbarazos"></p>
+                        </span>
+
+                        <span>
+                            <label for="fur">Numero de partos:</label>
+                            <p id="nPartos"></p>
+                        </span>
+
+                        <span>
+                            <label for="fur">Numero de cesareas:</label>
+                            <p id="nCesareas"></p>
+                        </span>
+
+                        <span>
+                            <label for="fur">Numero de legrado:</label>
+                            <p id="nLegrado"></p>
+                        </span>
+
+                    </div>
+                    
+                    <label for="complicacionesParto">COMPLICACIONES DURANTE EL PARTO O CESÁREAS ANTERIORES:</label>
+                    <p id="complicacionesParto"></p>
+                    
+                    <label for="complicacionesEmbarazo">COMPLICACIONES EN EMBARAZOS ANTERIORES:</label>
+                    <p id="complicacionesEmbarazo"></p>
+                    
+                    <div class="grid-radios">
+                        
+                        <span>
+                            <label>DIABETES GESTACIONAL:</label>
+                            <p id="diabetesGestacional"></p>
+                        </span>
+                        
+                    </div>
+                    
+                    <span>
+                        <label for="pesobebe">PESO DE SU BEBÉ ANTERIOR</label>
+                        <p id="pesobebe" > </p> 
+                    </span>
+                    
+                    <label for="antecedentesFamEmbarazo">ANTECEDENTES FAMILIARES DE COMPLICACIONES DURANTE EL EMBARAZO:</label>
+                    <p id="antecedentesFamEmbarazo"></p>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="input">
+                
+                <h2>SOMATOMETRÍA</h2>
+                
+                <div class="grid-three">
+                    <span>
+                        <label>PESO:</label>
+                        <p id="peso"></p>
+                    </span>
+                    <span>
+                        <label>TALLA:</label>
+                        <p id="talla"></p>
+                    </span>
+                    <span>
+                        <label>TA:</label>
+                        <p id="ta"></p>
+                    </span>
+                    <span>
+                        <label>SPO2:</label>
+                        <p id="spo2"></p>
+                    </span>
+                    <span>
+                        <label>Tº:</label>
+                        <p id="temperatura"></p>
+                    </span>
+                </div>
+                
+            </div>
+
+            <div class="input">
+                
+                <h2>Observaciones</h2>
+                
+                <div class="grid-one">
+    
+                <textarea name="observaciones" id="aHereditarios" cols="30" rows="3" required></textarea>
+                    
+                </div>
+                
+            </div>
+
+        </form>
+
+    </div>  
+
+    <script src="../cordova.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/routes.js"></script>
+    <script src="../js/ViewPatientHistory.js"></script>
+</body>
+</html>

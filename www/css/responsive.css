@@ -21,6 +21,11 @@
       .input .grid-radios .radio-group-two {
         justify-content:start;
       }
+
+      
+      .search-input{
+        width: 500px;
+      }
       
 }
 
@@ -50,4 +55,11 @@
         justify-content:start;
       }
 
+      .search-input{
+        width: 300px;
+      }
+
+      .card{
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+      }
 }
