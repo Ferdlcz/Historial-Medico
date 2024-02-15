@@ -13,7 +13,7 @@ function onDeviceReady() {
 }
 
 async function obtenerInfo() {
-    const IDUsuario = sessionStorage.getItem('ID');
+    const IDUsuario = sessionStorage.getItem('selectedUserID');
     const Token = sessionStorage.getItem('Token');
 
     try {
@@ -153,47 +153,49 @@ function setRadioValue(radioGroupName, storedValue) {
     }
 }
 
-function updateInfo(){
+async function updateInfo(){
 
-    const nombre = document.getElementById("name").value;
-    const apellidoPaterno = document.getElementById("aPaterno").value;
-    const apellidoMaterno = document.getElementById("aMaterno").value;
-    const fechaNac = document.getElementById("fechaNacimiento").value;
-    const edad = document.getElementById("edad").value;
-    const telefono = document.getElementById("telefono").value;
-    const email = document.getElementById("email").value;
-    const direccion = document.getElementById("direccion").value;
-    const numero = document.getElementById("numero").value;
-    const colonia = document.getElementById("colonia").value;
-    const municipio = document.getElementById("municipio").value;
-    const estado = document.getElementById("estado").value;
-    const antecedenteEnfermedades = document.getElementById("aEnfermedades").value;
-    const antecedenteHereditarios = document.getElementById("aHereditarios").value;
-    const alcoholOptions = document.getElementsByName("Alcohol");
-    const tabacoOptions = document.getElementsByName("Tabaco");
-    const alergias = document.getElementById("alergias").value;
-    const historialMenstrual = document.getElementById("historialMenstrual").value;
-    const menarca = document.getElementById("menarca").value;
-    const ivsa = document.getElementById("ivsa").value;
-    const anticopceptivo = document.getElementById("anticopceptivo").value;
-    const examenes = document.getElementById("examenes").value;
-    const fechaFur = document.getElementById("fur").value;
-    const numeroEmbarazos = document.getElementById("nEmbarazos").value;
-    const numeroPartos = document.getElementById("nPartos").value;
-    const numeroCesareas = document.getElementById("nCesareas").value;
-    const numeroLegrado = document.getElementById("nLegrado").value;
-    const complicacionesParto = document.getElementById("complicacionesParto").value;
-    const complicacionesEmbarazo = document.getElementById("complicacionesEmbarazo").value;
-    const diabetesOptions = document.getElementsByName("diabetesGestacional");
-    const pesobebe = document.getElementById("pesobebe").value;
-    const antecedentesFamEmbarazo = document.getElementById("antecedentesFamEmbarazo").value;
-    const peso = document.getElementById("peso").value;
-    const talla = document.getElementById("talla").value;
-    const ta = document.getElementById("ta").value;
-    const spo2 = document.getElementById("spo2").value;
-    const temperatura = document.getElementById("temperatura").value;
-    const IDUsuario = sessionStorage.getItem("ID");
+    try{
+        const nombre = document.getElementById("name").value;
+        const apellidoPaterno = document.getElementById("aPaterno").value;
+        const apellidoMaterno = document.getElementById("aMaterno").value;
+        const fechaNac = document.getElementById("fechaNacimiento").value;
+        const edad = document.getElementById("edad").value;
+        const telefono = document.getElementById("telefono").value;
+        const email = document.getElementById("email").value;
+        const direccion = document.getElementById("direccion").value;
+        const numero = document.getElementById("numero").value;
+        const colonia = document.getElementById("colonia").value;
+        const municipio = document.getElementById("municipio").value;
+        const estado = document.getElementById("estado").value;
+        const antecedenteEnfermedades = document.getElementById("aEnfermedades").value;
+        const antecedenteHereditarios = document.getElementById("aHereditarios").value;
+        const alcoholOptions = document.getElementsByName("Alcohol");
+        const tabacoOptions = document.getElementsByName("Tabaco");
+        const alergias = document.getElementById("alergias").value;
+        const historialMenstrual = document.getElementById("historialMenstrual").value;
+        const menarca = document.getElementById("menarca").value;
+        const ivsa = document.getElementById("ivsa").value;
+        const anticopceptivo = document.getElementById("anticopceptivo").value;
+        const examenes = document.getElementById("examenes").value;
+        const fechaFur = document.getElementById("fur").value;
+        const numeroEmbarazos = document.getElementById("nEmbarazos").value;
+        const numeroPartos = document.getElementById("nPartos").value;
+        const numeroCesareas = document.getElementById("nCesareas").value;
+        const numeroLegrado = document.getElementById("nLegrado").value;
+        const complicacionesParto = document.getElementById("complicacionesParto").value;
+        const complicacionesEmbarazo = document.getElementById("complicacionesEmbarazo").value;
+        const diabetesOptions = document.getElementsByName("diabetesGestacional");
+        const pesobebe = document.getElementById("pesobebe").value;
+        const antecedentesFamEmbarazo = document.getElementById("antecedentesFamEmbarazo").value;
+        const peso = document.getElementById("peso").value;
+        const talla = document.getElementById("talla").value;
+        const ta = document.getElementById("ta").value;
+        const spo2 = document.getElementById("spo2").value;
+        const temperatura = document.getElementById("temperatura").value;
+        const IDUsuario = sessionStorage.getItem("selectedUserID");
 
+        
         //*** RADIOBUTTON ALCOHOl ***//
         let consumoAlcohol;
         for (const radioButton of alcoholOptions) {
@@ -274,35 +276,34 @@ function updateInfo(){
             spo2,
             temperatura,
         }
-
+        
         const token = sessionStorage.getItem('Token');        
         
-        fetch('http://localhost:3500/api/actualizarHistorial', {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': token, 
-        },
-        body: JSON.stringify(data),
-    })
-    
-    .then(response =>{
-        if(!response.ok){
-            return response.json().then(errorData =>{
-                throw new Error(`Error en la respuesta del servidor: ${errorData.message}`);
-            })
-        }
-        return response.json();
-    }).then(data =>{
-        console.log("Respuesta: ", data);
-        alert("Datos enviados correctamente!!")
-        console.log(data)
+        const response = await fetch(`http://localhost:3500/api/actualizarHistorial/${IDUsuario}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token, 
+            },
+            body: JSON.stringify(data),
+        });
         
-        sessionStorage.removeItem('InfoUser');
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Error en la respuesta del servidor: ${errorData.message}`);
+        }
 
-        return obtenerInfo();
-    }).catch(error =>{
+        const responseData = await response.json();
+        console.log("Respuesta: ", responseData);
+        alert("Datos enviados correctamente!!")
+        console.log(responseData)
+        
+        sessionStorage.removeItem('InfoUser');  
+
+        return window.location = "../app/verhistorial.html";
+
+    } catch(error) {
         console.log("Error al enviar los datos:", error.message);
         alert(`Error al enviar los datos: ${error.message}`);
-    })
+    }
 }
