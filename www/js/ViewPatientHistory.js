@@ -84,6 +84,7 @@ function showInfo() {
     const ta = document.getElementById("ta");
     const spo2 = document.getElementById("spo2");
     const temperatura = document.getElementById("temperatura");
+    const observacion = document.getElementById("observacion");
 
     //*** Info Session Storage ***/
     const infoUsuarios = JSON.parse(sessionStorage.getItem('InfoUser'))
@@ -132,8 +133,55 @@ function showInfo() {
         talla.textContent = user.Talla;
         ta.textContent = user.TA;
         spo2.textContent = user.SPO2;
-        temperatura.textContent = user.Temperatura;     
+        temperatura.textContent = user.Temperatura;
+        observacion.textContent = user.Observacion;
     }
 
+}
+
+const btnEnviarObservacion= document.getElementById("historial");
+
+btnEnviarObservacion.addEventListener("submit", async function(e){
+    e.preventDefault();
+    try{
+        const IDUsuario = sessionStorage.getItem('selectedUserID');
+        const Token = sessionStorage.getItem('Token');
+
+        const observacion = document.getElementById('observacion').value;
+
+        await sendObservation(IDUsuario, observacion, Token);
+
+        await showInfo()
+    }catch(error){
+        console.log("Error al enviar la observacion: ", error)
+    }
+})
+
+async function sendObservation(IDUsuario, Observacion, Token) {
+    try {
+        const response = await fetch('http://localhost:3500/api/observacion', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': Token,
+            },
+            body: JSON.stringify({
+                IDUsuario: IDUsuario,
+                Observacion: Observacion
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Error al enviar la observación');
+        }
+
+        console.log('Observación enviada exitosamente:', data.message);
+        alert("Observación enviada exitosamente!")
+
+    } catch (error) {
+        console.error('Error al enviar la observación:', error);
+    }
 }
 }

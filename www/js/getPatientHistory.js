@@ -144,7 +144,8 @@ function showInfo() {
         talla.textContent = user.Talla;
         ta.textContent = user.TA;
         spo2.textContent = user.SPO2;
-        temperatura.textContent = user.Temperatura;     
+        temperatura.textContent = user.Temperatura;   
+        observacion.textContent = user.Observacion;  
     }
 
 }

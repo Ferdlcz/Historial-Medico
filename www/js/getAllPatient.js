@@ -3,13 +3,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // Array para almacenar información de usuarios
 const userArray = [];
 
-
 console.log(userArray)
 async function onDeviceReady() {
   console.log("Device Ready");
 
   try {
     const { data } = await getUsers();
+
+    console.log(data)
 
     if (data.success && data.users) {
       data.users.forEach((user) => {
@@ -19,7 +20,7 @@ async function onDeviceReady() {
           userArray.push({
             userID: user.IDUsuario,
             nombre: user.Nombre,
-            apellido: user.Apellido,
+            apellidoPaterno: user.ApellidoPaterno,
           });
 
           sessionStorage.setItem("selectedUserID", userID);
@@ -82,7 +83,7 @@ function createCard(person) {
   nombreElement.id = "nombre";
 
   const apellidoElement = document.createElement("h2");
-  apellidoElement.textContent = person.Apellido;
+  apellidoElement.textContent = person.ApellidoPaterno;
   apellidoElement.id = "apellido";
 
   cardContent.appendChild(icon);
@@ -93,3 +94,46 @@ function createCard(person) {
 }
 
 const cardContainer = document.getElementById("card-container");
+
+//Filtro de busqueda
+document.getElementById('search-form').addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+  const searchTerm = document.getElementById('search-input').value.trim();
+
+  try {
+    const response = await fetch(`http://localhost:3500/api/buscar?term=${searchTerm}`);
+
+    if (!response.ok) {
+      throw new Error('Hubo un problema con la solicitud');
+    }
+
+    const data = await response.json();
+    console.log(data);
+    
+    // Limpiar el contenedor de tarjetas antes de agregar nuevas tarjetas
+    cardContainer.innerHTML = "";
+
+    if (data.success && data.results) {
+      data.results.forEach((user) => {
+        const card = createCard(user);
+        card.addEventListener("click", () => {
+          const userID = user.userID;
+          userArray.push({
+            userID: user.userID,
+            nombre: user.Nombre,
+            apellidoPaterno: user.ApellidoPaterno,
+          });
+
+          sessionStorage.setItem("selectedUserID", userID);
+          window.location.href = "../app/verhistorial.html";
+        });
+        cardContainer.appendChild(card);
+      });
+    } else {
+      console.log("Error al obtener usuarios:", data.message || "Respuesta no válida");
+    }
+  } catch (error) {
+    console.log('Error al realizar la solicitud: ', error);
+  }
+})
