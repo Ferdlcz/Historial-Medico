@@ -118,9 +118,9 @@ document.getElementById('search-form').addEventListener('submit', async function
       data.results.forEach((user) => {
         const card = createCard(user);
         card.addEventListener("click", () => {
-          const userID = user.userID;
+          const userID = user.IDUsuario; // Acceder al IDUsuario en lugar de user.userID
           userArray.push({
-            userID: user.userID,
+            userID: user.IDUsuario,
             nombre: user.Nombre,
             apellidoPaterno: user.ApellidoPaterno,
           });
